@@ -1,16 +1,28 @@
-﻿/**
- * @description: 返回字符串
- * @param {string} type 状态0和1
- * @return {string} 0代表
- */
-const getType = (type) => {
-  const map = {
-    0: "审核",
-    1: "弃审",
-  };
-  return map[type];
+﻿const TimeStamp = (time) => {
+  if (!time) return;
+  var Time = time.replace("T", " ");
+  var datetime = new Date(Time);
+  var year = datetime.getFullYear();
+  var month =
+    datetime.getMonth() + 1 < 10
+      ? "0" + (datetime.getMonth() + 1)
+      : datetime.getMonth() + 1;
+  var date =
+    datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+  var hour =
+    datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+  var minute =
+    datetime.getMinutes() < 10
+      ? "0" + datetime.getMinutes()
+      : datetime.getMinutes();
+  var second =
+    datetime.getSeconds() < 10
+      ? "0" + datetime.getSeconds()
+      : datetime.getSeconds();
+  return (
+    year + "-" + month + "-" + date + " " + hour + ": " + minute + ": " + second
+  );
 };
-console.log("fuck");
 
 /**
  * @description:初始化容器dom
@@ -18,7 +30,6 @@ console.log("fuck");
  * @return {void} 无
  */
 const initContainer = (data) => {
-  console.log("????");
   const container = document.createElement("div");
   container.innerHTML = `
     <img class="biz-showMessageBlock" id="biz-showMessageBlock" src="~/Content/img/ProduceImg/Info.png" />
@@ -36,26 +47,8 @@ const initContainer = (data) => {
   document.body.insertBefore(container, document.body.children[0]);
 };
 
-window._infoList = {
-  init: (data) => {
-    initContainer();
-    setList(data);
-  },
-  update: (data) => {
-    setList(data);
-  },
-  TimeStamp: TimeStamp,
-};
-
 const setList = (options) => {
-  // options={
-  //     data:data,
-  //     readOnClick=(itemData)=>{
-
-  //     }
-  // }
   const { data } = options;
-  console.log(data);
   const showMessageBlock = document.querySelector("#biz-showMessageBlock");
   const magnifyBtn = document.querySelector("#biz-magnifyBtn");
   const dwindleBtn = document.querySelector("#biz-dwindleBtn");
@@ -68,7 +61,6 @@ const setList = (options) => {
   getInfoList();
   function getInfoList() {
     const itemList = document.querySelectorAll(".biz-selector-class");
-    console.log(data.length);
     if (data.length > 0) {
       tContainer.classList.remove("biz-off");
       showMessageBlock.classList.add("biz-off");
@@ -135,28 +127,13 @@ const setList = (options) => {
   }
 };
 
-function TimeStamp(time) {
-  if (!time) return;
-  var Time = time.replace("T", " ");
-  var datetime = new Date(Time);
-  var year = datetime.getFullYear();
-  var month =
-    datetime.getMonth() + 1 < 10
-      ? "0" + (datetime.getMonth() + 1)
-      : datetime.getMonth() + 1;
-  var date =
-    datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-  var hour =
-    datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-  var minute =
-    datetime.getMinutes() < 10
-      ? "0" + datetime.getMinutes()
-      : datetime.getMinutes();
-  var second =
-    datetime.getSeconds() < 10
-      ? "0" + datetime.getSeconds()
-      : datetime.getSeconds();
-  return (
-    year + "-" + month + "-" + date + " " + hour + ": " + minute + ": " + second
-  );
-}
+window._infoList = {
+  init: (data) => {
+    initContainer();
+    setList(data);
+  },
+  update: (data) => {
+    setList(data);
+  },
+  TimeStamp: TimeStamp,
+};
