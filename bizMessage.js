@@ -1,7 +1,7 @@
 ﻿/*
  * @Author: LiMengjie
  * @Date: 2021-01-12 08:31:14
- * @LastEditTime: 2021-01-12 09:26:34
+ * @LastEditTime: 2021-01-12 16:00:28
  * @LastEditors: Please set LastEditors
  * @Description: 全局消息弹窗插件，依赖于W9项目可用，需自行引入样式
  */
@@ -11,19 +11,19 @@
  * @param {null}
  * @return {void}
  */
-const initContainer = () => {
+function initContainer() {
   if (document.querySelector("#bizContainer")) {
     throw new Error("容器已存在，请不要重复初始化");
   }
   const container = document.createElement("div");
   container.id = "bizContainer";
   container.innerHTML = `
-    <img class="biz-showMessageBlock" id="biz-showMessageBlock" src="~/Content/img/ProduceImg/Info.png" alt=’‘/>
+    <img class="biz-showMessageBlock" id="biz-showMessageBlock" src="/Content/img/ProduceImg/Info.png" alt=’‘/>
     <div class="biz-container" id="biz-tContainer">
         <div class="biz-top-title">
-            <img id="biz-magnifyBtn" src="~/Content/img/ProduceImg/KHCFDC.png" alt="放大"/>
-            <img id="biz-dwindleBtn" class="biz-off" src="~/Content/img/ProduceImg/small.png" alt="缩小"/>
-            <img id="biz-closeBtn" src="~/Content/img/ProduceImg/close.png" style="margin-left:1em;margin-right:1em;" alt="关闭"/>
+            <img id="biz-magnifyBtn" src="/Content/img/ProduceImg/KHCFDC.png" alt="放大"/>
+            <img id="biz-dwindleBtn" class="biz-off" src="/Content/img/ProduceImg/small.png" alt="缩小"/>
+            <img id="biz-closeBtn" src="/Content/img/ProduceImg/close.png" style="margin-left:1em;margin-right:1em;" alt="关闭"/>
         </div>
         <div id="biz-mainContent" class="biz-concent"></div>
         <div id="biz-noData" class="biz-concent biz-flex biz-content-no-data">
@@ -31,21 +31,21 @@ const initContainer = () => {
         </div>
     </div>`;
   document.body.insertBefore(container, document.body.children[0]);
-};
+}
 
 /**
  * @description:
- * @param {对象包含数据源及回调函数
- * {
+ * @param {
+ *    {
  *    data:any:[],
  *    readOnClick:function(data){//data为每一项的数据源},
- *    spanInnerHTML:function(data){//data为每一项的数据源}
- * }
+ *    spanInnerHTML:function(data){//data为每一项的数据源
+ *    }
  * }
  * options {data:数据源,readOnClick:点击已阅的回调函数,spanInnerHTML:数据项的展示模板}
  * @return {void}
  */
-const setList = (options) => {
+function setList(options) {
   //options参数类型检查
   if (Object.keys(options).length !== 3) {
     removeContainer();
@@ -143,17 +143,17 @@ const setList = (options) => {
       magnifyBtn.classList.remove("biz-off");
     };
   }
-};
+}
 
 /**
  * @description: 删除弹窗实例的容器
  * @param {null}
  * @return {void}
  */
-const removeContainer = () => {
+function removeContainer() {
   const container = document.querySelector("#bizContainer");
   container ? container.remove() : console.error("预期删除的DOM元素不存在");
-};
+}
 
 //暴漏全局对象供调用
 window.bizMessage = {
