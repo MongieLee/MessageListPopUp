@@ -1,191 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <style>
-    .biz-container {
-      border: 1px rgb(170, 170, 170) solid;
-      border-bottom: none;
-      position: fixed;
-      z-index: 99;
-      display: flex;
-      right: 0;
-      bottom: 0;
-      width: 460px;
-      color: black !important;
-      height: 280px;
-      border-radius: 8px 0 0 0;
-      transition: all 0.4s;
-    }
 
-    .biz-top-title {
-      position: absolute;
-      width: 100%;
-      height: 34px;
-      background-color: #1890ff;
-      display: flex;
-      justify-content: flex-end;
-      top: 0;
-      left: 0;
-      align-items: center;
-      padding: 4px;
-    }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<style>
+  .biz-container {
+    border: 1px rgb(170, 170, 170) solid;
+    border-bottom: none;
+    position: fixed;
+    z-index: 99;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    width: 460px;
+    color: black !important;
+    height: 280px;
+    border-radius: 8px 0 0 0;
+    transition: all 0.4s;
+  }
 
-    .biz-top-title > span {
-      color: white;
-      margin-left: 1em;
-      cursor: pointer;
-    }
+  .biz-top-title {
+    position: absolute;
+    width: 100%;
+    height: 34px;
+    background-color: #1890ff;
+    display: flex;
+    justify-content: flex-end;
+    top: 0;
+    left: 0;
+    align-items: center;
+    padding: 4px;
+  }
 
-    .biz-top-title > img {
-      cursor: pointer;
-    }
+  .biz-top-title>span {
+    color: white;
+    margin-left: 1em;
+    cursor: pointer;
+  }
 
-    .biz-concent {
-      margin-top: 42px;
-      background-color: #fff;
-      flex-grow: 1;
-      padding: 8px;
-      overflow: auto;
-    }
+  .biz-top-title>img {
+    cursor: pointer;
+  }
 
-    .biz-content-no-data {
-      display: flex;
-      height: 239px;
-      justify-content: center;
-      align-items: center;
-    }
+  .biz-concent {
+    margin-top: 42px;
+    background-color: #fff;
+    flex-grow: 1;
+    padding: 8px;
+    overflow: auto;
+  }
 
-    .biz-content-item:not(:last-child) {
-      margin-bottom: 1.5em;
-    }
+  .biz-content-no-data {
+    display: flex;
+    height: 239px;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .biz-content-item {
-      display: flex;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-      align-items: center;
-      border-radius: 4px;
-      background-color: white;
-      border: 1px rgb(158, 158, 158) solid;
-      padding: 4px 8px;
-    }
+  .biz-content-item:not(:last-child) {
+    margin-bottom: 1.5em;
+  }
 
-    .biz-item-detail {
-      flex-grow: 1;
-    }
+  .biz-content-item {
+    display: flex;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px rgb(158, 158, 158) solid;
+    padding: 4px 8px;
+  }
 
-    .biz-off {
-      display: none;
-    }
+  .biz-item-detail {
+    flex-grow: 1;
+  }
 
-    .biz-red-text {
-      color: red;
-    }
+  .biz-off {
+    display: none;
+  }
 
-    .biz-confirmBtn {
-      line-height: 1.5715;
-      position: relative;
-      display: inline-block;
-      font-weight: 400;
-      white-space: nowrap;
-      text-align: center;
-      background-image: none;
-      -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
-      cursor: pointer;
-      -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      -ms-touch-action: manipulation;
-      touch-action: manipulation;
-      height: 32px;
-      padding: 4px 15px;
-      font-size: 14px;
-      border-radius: 2px;
-      border: 1px solid #d9d9d9;
-      color: #fff;
-      background: #1890ff;
-      border-color: #1890ff;
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
-    }
+  .biz-red-text {
+    color: red;
+  }
 
-    .biz-confirmBtn:hover {
-      background: #40a9ff;
-      border-color: #40a9ff;
-    }
+  .biz-confirmBtn {
+    line-height: 1.5715;
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+    cursor: pointer;
+    -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    height: 32px;
+    padding: 4px 15px;
+    font-size: 14px;
+    border-radius: 2px;
+    border: 1px solid #d9d9d9;
+    color: #fff;
+    background: #1890ff;
+    border-color: #1890ff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  }
 
-    .biz-showMessageBlock {
-      height: 50px;
-      width: 50px;
-      position: fixed;
-      right: 3em;
-      cursor: pointer;
-      z-index: 999;
-      bottom: 3em;
-    }
+  .biz-confirmBtn:hover {
+    background: #40a9ff;
+    border-color: #40a9ff;
+  }
 
-    .biz-top-title img {
-      max-height: 75%;
-      max-width: 75%;
+  .biz-showMessageBlock {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    right: 3em;
+    cursor: pointer;
+    z-index: 999;
+    bottom: 3em;
+  }
+
+  .biz-top-title img {
+    max-height: 75%;
+    max-width: 75%;
+  }
+</style>
+
+<body>
+  <button onclick="change()">点我改数据</button>
+</body>
+<script src="./bizMessage.js"></script>
+<script>
+  const data = [];
+  window.bizMessage.init({
+    data: [
+      { Tank: 1, OperationType: 0, OperationTime: "2009-12-01" },
+      { Tank: 2, OperationType: 1, OperationTime: "2009-12-01" },
+      { Tank: 3, OperationType: 0, OperationTime: "2009-12-01" },
+      { Tank: 4, OperationType: 1, OperationTime: "2009-12-01" },
+      { Tank: 5, OperationType: 0, OperationTime: "2009-12-01" },
+    ],
+    // data: [],
+    readOnClick: (data) => {
+      console.log(data);
+    },
+    spanInnerHTML: (i) => {
+      return `储罐【<span class="biz-red-text">${i.Tank
+        }</span>】有计划已进行了【<span class='biz-red-text'></span.red-text>${i.OperationType
+        }</span>】操作【时间：${window.bizMessage.TimeStamp(i.OperationTime)}】
+    `;
     }
-  </style>
-  <body>
-    <button onclick="change()">点我改数据</button>
-  </body>
-  <script src="./InfoJs.js"></script>
-  <script>
-    const data = [];
-    window._infoList.init({
+  });
+
+  function change() {
+    window.bizMessage.update({
       data: [
         { Tank: 1, OperationType: 0, OperationTime: "2009-12-01" },
         { Tank: 2, OperationType: 1, OperationTime: "2009-12-01" },
         { Tank: 3, OperationType: 0, OperationTime: "2009-12-01" },
         { Tank: 4, OperationType: 1, OperationTime: "2009-12-01" },
         { Tank: 5, OperationType: 0, OperationTime: "2009-12-01" },
+        { Tank: 6, OperationType: 0, OperationTime: "2009-12-01" },
+        { Tank: 7, OperationType: 0, OperationTime: "2009-12-01" },
+        { Tank: 8, OperationType: 0, OperationTime: "2009-12-01" },
       ],
       readOnClick: (data) => {
         console.log(data);
       },
       spanInnerHTML: (i) => {
-        return `储罐【<span class="biz-red-text">${
-          i.Tank
-        }</span>】有计划已进行了【<span class='biz-red-text'></span.red-text>${
-          i.OperationType
-        }</span>】操作【时间：${window._infoList.TimeStamp(i.OperationTime)}】
+        return `储罐【<span class="biz-red-text">${i.Tank
+          }</span>】有计划已进行了【<span class='biz-red-text'></span.red-text>${i.OperationType
+          }</span>】操作【时间：${window.bizMessage.TimeStamp(i.OperationTime)}】
                           `;
       },
     });
+  }
+</script>
 
-    function change() {
-      window._infoList.update({
-        data: [
-          { Tank: 1, OperationType: 0, OperationTime: "2009-12-01" },
-          { Tank: 2, OperationType: 1, OperationTime: "2009-12-01" },
-          { Tank: 3, OperationType: 0, OperationTime: "2009-12-01" },
-          { Tank: 4, OperationType: 1, OperationTime: "2009-12-01" },
-          { Tank: 5, OperationType: 0, OperationTime: "2009-12-01" },
-          { Tank: 5, OperationType: 0, OperationTime: "2009-12-01" },
-          { Tank: 5, OperationType: 0, OperationTime: "2009-12-01" },
-          { Tank: 5, OperationType: 0, OperationTime: "2009-12-01" },
-        ],
-        readOnClick: (data) => {
-          console.log(data);
-        },
-        spanInnerHTML: (i) => {
-          return `储罐【<span class="biz-red-text">${
-            i.Tank
-          }</span>】有计划已进行了【<span class='biz-red-text'></span.red-text>${
-            i.OperationType
-          }</span>】操作【时间：${window._infoList.TimeStamp(i.OperationTime)}】
-                          `;
-        },
-      });
-    }
-  </script>
 </html>
